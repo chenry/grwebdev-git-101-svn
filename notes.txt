@@ -1,0 +1,56 @@
+GRWeb Dev: 5/21 5:45pm
+Ross Hunter Notes:
+
+* 20 minutes
+* Slides
+* 5 minute Git overview
+    * "This is how you create a git repo, and structure of a git repo"
+
+Git 101
+    * Using Git
+	- Will not bore you with how to install it.
+	- How to create a local git repo
+	    * mkdir "git-svn-presentation"
+	    * git init
+	    * Congratulations, you have just created your first git repo
+	    * git repo resides in a directory titled .git
+	- Create a new file and add it to the git repository
+	    * mkdir a.txt
+	    * enter some text into the file
+	    * git status - shows the state of your working directory, what is about to be committed, and what is in the repository
+	    * git add . - will tell git to keep track of this file
+	    * git commit - will commit it to the repository
+	    * make your commit message and into the repo it goes.
+	- What did we commit
+	    * git log - shows the past commits
+	- Create a branch
+	    * git branch - shows all of your local branches
+	    * git co -b <branch_name> - will create a new branch for the given state of the repo
+	    * git branch - will now show the new feature branch and the master branch
+	- Working with Remote Repos
+	    * most of the time you will not be starting from scratch, you will want to "clone" another repo locally
+	    * git clone git://github.com/jashkenas/coffee-script.git
+	    * you can still perform all of the commands from before (log, commit, branch)	
+	    * what I want to call to attention now is Remote Tracking Branches
+	    * git branch -a = all of the branches that are local to your machine that correspond to a remote branch on the remote server
+	    * I am not going to spend too much time on this, because Ryan is going to cover this in his session
+
+Git SVN
+    * "Cheeky Poem"
+    * Initializing a Local Git repo based on Subversion
+	- git svn clone http://support.googlecode.com/svn --prefix=svn/ -T trunk -b branches
+	- this will copy a project from subversion into Git
+	- will also copy the trunk and the branches
+    * All of the commands are the same with git
+	- git log
+	- git add .
+	- git commit
+    * Make modifications and push to the remote repo
+	- make a change
+	- commit it as usual
+	- git svn rebase - this is how you update your git repo with latest changes from svn
+	- checkout remote tracking branch***** - you never do this unless you are using SVN
+	- git merge --no-ff <branch_name>
+	- git commit --amend -m"XYZ-123: fixing the defect"
+	- git svn dcommit - and changes are pushed back onto the server
+	
